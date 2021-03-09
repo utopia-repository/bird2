@@ -1,3 +1,11 @@
+bird2 (2.0.7+git156~d3782c72-0utopia1~deb10u1) buster; urgency=medium
+
+  * Rebuild for buster.
+  * d/p/0001-Sync-the-linuxdoc-mangled-files-with-linuxdoc-tools_.patch:
+    disable, not needed for buster
+
+ -- James Lu <james@overdrivenetworks.com>  Tue, 09 Mar 2021 13:33:18 -0800
+
 bird2 (2.0.7+git156~d3782c72-0utopia1) unstable; urgency=medium
 
   * Utopia Repository upload.
