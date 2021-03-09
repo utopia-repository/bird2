@@ -91,7 +91,7 @@ static struct resclass rf_class = {
 };
 
 struct rfile *
-rf_open(pool *p, char *name, char *mode)
+rf_open(pool *p, const char *name, const char *mode)
 {
   FILE *f = fopen(name, mode);
 
@@ -1442,7 +1442,7 @@ sk_open(sock *s)
   }
 
   if (s->password)
-    if (sk_set_md5_auth(s, s->saddr, s->daddr, s->iface, s->password, 0) < 0)
+    if (sk_set_md5_auth(s, s->saddr, s->daddr, -1, s->iface, s->password, 0) < 0)
       goto err;
 
   switch (s->type)
@@ -1495,7 +1495,9 @@ sk_open_unix(sock *s, char *name)
   if (fcntl(fd, F_SETFL, O_NONBLOCK) < 0)
     return -1;
 
-  /* Path length checked in test_old_bird() */
+  /* Path length checked in test_old_bird() but we may need unix sockets for other reasons in future */
+  ASSERT_DIE(strlen(name) < sizeof(sa.sun_path));
+
   sa.sun_family = AF_UNIX;
   strcpy(sa.sun_path, name);
 
