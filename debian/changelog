@@ -4,6 +4,7 @@ bird2 (2.0.7+git156~d3782c72-0utopia1) unstable; urgency=medium
   * New upstream Git snapshot.
     - Add support for reading Babel metric as igp_metric (455c13dc)
     - Add support for IPv4 routes via IPv6 next hops (53401bef)
+  * d/p/0002-Added-missing-extern.patch: drop, applied upstream
 
  -- James Lu <james@overdrivenetworks.com>  Tue, 09 Mar 2021 13:06:54 -0800
 
